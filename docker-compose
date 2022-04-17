@@ -1,0 +1,28 @@
+# version: '3.1'
+# services:
+#   mysql:
+#     image: mysql:5.7
+#     container_name: container_mysql
+#     env_file:
+#       - ./.env
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
+#     ports:
+#       - $MYSQL_PORT:3306
+  
+#   api:
+#     image: node:latest
+#     container_name: container_api
+#     restart: always
+#     ports:
+#       - $SERVER_PORT:$SERVER_PORT
+#     environment:
+#       - DB_HOST=mysql
+#       - DB_NAME=$DB_NAME
+#       - DB_USER=$MYSQL_USER
+#       - DB_PASSWORD=$MYSQL_PASSWORD
+#       - SERVER_PORT=$PORT
+#     volumes:
+#       - ./back-end:/usr/app
+#     working_dir: /usr/app
+#     command: bash -c "npm install && npm start"
