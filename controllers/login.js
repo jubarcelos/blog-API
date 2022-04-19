@@ -1,10 +1,10 @@
-const loginService = require('../services/login');
+const Service = require('../services');
 const tokenGenerator = require('../helpers/jtw');
 
 const checkLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const user = await loginService({
+    const user = await Service.login({
       email,
       password,
     });

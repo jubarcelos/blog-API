@@ -1,8 +1,8 @@
-const listUserService = require('../services/listUsers');
+const Service = require('../services');
 
 const listUserController = async (req, res, next) => {
   try {
-    const listUsers = await listUserService();
+    const listUsers = await Service.listUsers();
     return res.status(200).json(listUsers);
   } catch (error) { 
     next(error);

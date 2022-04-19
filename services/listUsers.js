@@ -1,8 +1,8 @@
 const { User } = require('../models');
 
-const createUser = async () => {
-  const createdUser = await User.findAll();
-  return createdUser;
+const listUser = async () => {
+  const listedUsers = await User.findAll();
+  return listedUsers;
 };
 
-module.exports = createUser;
+module.exports = listUser;
