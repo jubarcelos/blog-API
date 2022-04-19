@@ -1,14 +1,15 @@
 const userRoutes = require('express').Router();
-
-// const { getAll, getById, create, update, remove } = require('../controllers/ProductsController');
+const Schema = require('../schemas'); 
+const validInputs = require('../middleware/validInputs'); 
+const controller = require('../controllers');
 
 userRoutes.route('/')
-  .get()
-  .post();
+  .get(controller.listUsers)
+  .post(validInputs(Schema.userPOST), controller.createUser);
 
-userRoutes.route('/:id')
-  .get()
-  .put()
-  .delete();
+// userRoutes.route('/:id')
+//   .get()
+//   .put()
+//   .delete();
 
 module.exports = userRoutes;
