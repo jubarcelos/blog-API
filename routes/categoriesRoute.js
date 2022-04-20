@@ -1,12 +1,13 @@
 const categoriesRoutes = require('express').Router();
-
-// const { getAll, getById, create, update, remove } = require('../controllers/ProductsController');
+const authenticateJWT = require('../middleware/authentication');
 
 categoriesRoutes.route('/')
+  .use(authenticateJWT)
   .get()
   .post();
 
 categoriesRoutes.route('/:id')
+  .use(authenticateJWT)
   .get()
   .put()
   .delete();

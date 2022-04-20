@@ -1,12 +1,13 @@
 const postRoutes = require('express').Router();
-
-// const { getAll, getById, create, update, remove } = require('../controllers/ProductsController');
+const authenticateJWT = require('../middleware/authentication');
 
 postRoutes.route('/')
+  .use(authenticateJWT)
   .get()
   .post();
 
 postRoutes.route('/:id')
+  .use(authenticateJWT)
   .get()
   .put()
   .delete();

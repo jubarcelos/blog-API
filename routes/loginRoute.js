@@ -2,12 +2,15 @@ const loginRoutes = require('express').Router();
 const validInputs = require('../middleware/validInputs');
 const Schema = require('../schemas');
 const controller = require('../controllers');
+const authenticateJWT = require('../middleware/authentication');
 
 loginRoutes.route('/')
-  .get(controller.login)
-  .post(validInputs(Schema.loginPOST), controller.login);
+  .post(validInputs(Schema.loginPOST), controller.login)
+  .use(authenticateJWT)
+  .get(controller.login);
 
 // loginRoutes.route('/:id')
+//  .use(authenticateJWT)
 //   .get()
 //   .put()
 //   .delete();
