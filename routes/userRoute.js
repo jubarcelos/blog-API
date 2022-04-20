@@ -5,9 +5,8 @@ const controller = require('../controllers');
 const authenticateJWT = require('../middleware/authentication');
 
 userRoutes.route('/')
-  .post(validInputs(Schema.userPOST), controller.createUser)
-  .use(authenticateJWT)
-  .get(controller.listUsers);
+  .post(validInputs(Schema.input.userPOST), controller.createUser)
+  .get(authenticateJWT, controller.listUsers);
 
 // userRoutes.route('/:id')
 // .use(authenticateJWT)
