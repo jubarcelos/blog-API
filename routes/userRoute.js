@@ -8,10 +8,12 @@ userRoutes.route('/')
   .post(validInputs(Schema.input.userPOST), controller.createUser)
   .get(authenticateJWT, controller.listUsers);
 
-// userRoutes.route('/:id')
-// .use(authenticateJWT)
-//   .get()
-//   .put()
-//   .delete();
+userRoutes.route('/:id')
+  .get(authenticateJWT, 
+    validInputs(Schema.input.userGET),
+    Schema.auth,
+    controller.listUsers);
+  // .put()
+  // .delete();
 
 module.exports = userRoutes;

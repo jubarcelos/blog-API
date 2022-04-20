@@ -1,22 +1,35 @@
-const Joi = require('joi');
+const joi = require('joi');
+const { celebrate, Joi, Segments } = require('celebrate');
 
-const schemas = {
-  userPOST: Joi.object().keys({
-    displayName: Joi.string().min(8).required(),
-    email: Joi.string().email({ minDomainSegments: 2 }).lowercase().required(),
-    password: Joi.string().length(6).required(),
-    image: Joi.string().required(),
+const input = {
+  userPOST: joi.object().keys({
+    displayName: joi.string().min(8).required(),
+    email: joi.string().email({ minDomainSegments: 2 }).lowercase().required(),
+    password: joi.string().length(6).required(),
+    image: joi.string().required(),
 }),
-  loginPOST: Joi.object().keys({
-    email: Joi.string().email({ minDomainSegments: 2 }).lowercase().required(),
-    password: Joi.string().min(6).required(),
+  loginPOST: joi.object().keys({
+    email: joi.string().email({ minDomainSegments: 2 }).lowercase().required(),
+    password: joi.string().min(6).required(),
 }),
-  postPOST: Joi.object().keys({
+  userGET: joi.object().keys({
+    id: joi.number().integer().required(),
+    displayName: joi.string().min(8).required(),
+    email: joi.string().email({ minDomainSegments: 2 }).lowercase().required(),
+    image: joi.string().required(),
+}),
+  postPOST: joi.object().keys({
     
   }),
 };
 
-module.exports = schemas;
+const auth = celebrate({
+  [Segments.HEADERS]: Joi.object({
+    authorization: Joi.string().required(),
+  }).unknown(),
+});
+
+module.exports = { input, auth };
 
 // consulted https://joi-tester.corneroftheinternet.rocks/public/html/docs.html#stringemailoptions
 // consulted https://softchris.github.io/pages/joi.html#introducing-joi
