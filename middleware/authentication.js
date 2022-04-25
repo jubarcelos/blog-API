@@ -1,6 +1,5 @@
 const Jwt = require('jsonwebtoken');
 require('dotenv').config();
-const { User } = require('../models');
 
 const authenticateJWT = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -9,8 +8,7 @@ const authenticateJWT = (req, res, next) => {
   }
   try {
     const decode = Jwt.verify(authHeader, process.env.JWT_SECRET);
-    const user = User.findOne({ where: { email: decode.data.email } });
-    req.user = user;
+    req.user = decode;
     next();
   } catch (error) {
     if (error.name.includes('JsonWebTokenError')) {
