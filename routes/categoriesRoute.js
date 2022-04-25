@@ -5,8 +5,7 @@ const controller = require('../controllers');
 const authenticateJWT = require('../middleware/authentication');
 
 categoriesRoutes.route('/')
-.get(authenticateJWT, 
-  validInputs(Schema.input.categoriesGET),
+.get(authenticateJWT,
   Schema.auth,
   controller.listCategories)
 .post(authenticateJWT, 
