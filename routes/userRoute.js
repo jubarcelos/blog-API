@@ -9,8 +9,7 @@ userRoutes.route('/')
   .get(authenticateJWT, controller.listUsers);
 
 userRoutes.route('/:id')
-  .get(authenticateJWT, 
-    validInputs(Schema.input.userGET),
+  .get(authenticateJWT,
     Schema.auth,
     controller.getUser);
   // .put()

@@ -12,14 +12,8 @@ const input = {
     email: joi.string().email({ minDomainSegments: 2 }).lowercase().required(),
     password: joi.string().min(6).required(),
 }),
-  userGET: joi.object().keys({
-    id: joi.number().integer().required(),
-    displayName: joi.string().min(8).required(),
-    email: joi.string().email({ minDomainSegments: 2 }).lowercase().required(),
-    image: joi.string().required(),
-}),
-  postPOST: joi.object().keys({
-    
+  categoriesPOST: joi.object().keys({
+    name: joi.string().min(3).required(),
   }),
 };
 
