@@ -12,7 +12,7 @@ userRoutes.route('/:id')
   .get(authenticateJWT, 
     validInputs(Schema.input.userGET),
     Schema.auth,
-    controller.listUsers);
+    controller.getUser);
   // .put()
   // .delete();
 
