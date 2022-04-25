@@ -1,15 +1,21 @@
 const postRoutes = require('express').Router();
-// const authenticateJWT = require('../middleware/authentication');
+const Schema = require('../schemas'); 
+const validInputs = require('../middleware/validInputs'); 
+const controller = require('../controllers');
+const authenticateJWT = require('../middleware/authentication');
 
 postRoutes.route('/')
-  // .use(authenticateJWT)
-  .get()
-  .post();
+  .get(authenticateJWT,
+    Schema.auth,
+    controller.listPosts)
+  .post(authenticateJWT, 
+    validInputs(Schema.input.postPOST),
+    Schema.auth,
+    controller.createPost);
 
-postRoutes.route('/:id')
-  // .use(authenticateJWT)
-  .get()
-  .put()
-  .delete();
+// postRoutes.route('/:id')
+//   .get()
+//   .put()
+//   .delete();
 
 module.exports = postRoutes;

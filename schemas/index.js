@@ -15,6 +15,11 @@ const input = {
   categoriesPOST: joi.object().keys({
     name: joi.string().min(3).required(),
   }),
+  postPOST: joi.object().keys({
+    title: joi.string().min(3).required(),
+    content: joi.string().min(3).required(),
+    categoryIds: joi.array().required(),
+  }),
 };
 
 const auth = celebrate({
