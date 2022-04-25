@@ -33,3 +33,4 @@ module.exports = { input, auth };
 
 // consulted https://joi-tester.corneroftheinternet.rocks/public/html/docs.html#stringemailoptions
 // consulted https://softchris.github.io/pages/joi.html#introducing-joi
+// consulted https://stackoverflow.com/questions/65106628/validate-a-header-parameter-with-joi-nodejs
