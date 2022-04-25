@@ -1,5 +1,5 @@
 const Service = require('../services');
-const tokenGenerator = require('../helpers/jtw');
+const tokenGenerator = require('../helpers/jwt');
 
 const checkLogin = async (req, res, next) => {
   try {
