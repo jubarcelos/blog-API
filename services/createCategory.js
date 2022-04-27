@@ -1,11 +1,11 @@
-const { Categories } = require('../models');
+const { Category } = require('../models');
 
 const createCategory = async ({ name }) => {
-  const someCategory = await Categories.findOne({ where: { name } });
+  const someCategory = await Category.findOne({ where: { name } });
   if (someCategory) {
     return { status: 409, message: 'Category already registered' };
   }
-  const category = await Categories.create({
+  const category = await Category.create({
   name,
 });
   return category;

@@ -1,4 +1,4 @@
-const createCategory = require('../services/createCategory');
+const createCategory = require('../services/CreateCategory');
 
 const createCategoryController = async (req, res, next) => {
   try {
