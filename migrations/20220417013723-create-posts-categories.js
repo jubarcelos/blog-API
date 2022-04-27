@@ -9,10 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       categoryId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Categories',
+          key: 'id'
+        },
+        primaryKey: true,
+        onDelete: 'CASCADE',
       },
       postId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'BlogPosts',
+          key: 'id'
+        },
+        primaryKey: true,
+        onDelete: 'CASCADE',
       },
     });
   },
