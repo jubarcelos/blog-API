@@ -1,9 +1,9 @@
-const createCategory = require('../services/CreateCategory');
+const CreateCategory = require('../services/CreateCategory');
 
-const createCategoryController = async (req, res, next) => {
+const CreateCategoryController = async (req, res, next) => {
   try {
     const { name } = req.body;
-    const category = await createCategory({
+    const category = await CreateCategory({
       name,
     });
     if (category.message) return res.status(category.status).json({ message: category.message });
@@ -13,4 +13,4 @@ const createCategoryController = async (req, res, next) => {
   }
 };
 
-module.exports = createCategoryController;
+module.exports = CreateCategoryController;

@@ -1,19 +1,19 @@
-// const createUser = require('./CreateUser');
-// const listUsers = require('./ListUsers');
-// const login = require('./Login');
-// const getUser = require('./GetUser');
-// const listCategories = require('./ListCategories');
-// const getCategory = require('./GetCategory');
-// const createPost = require('./CreatePost');
-// const listPosts = require('./ListPosts');
+const CreateUser = require('./CreateUser');
+const ListUsers = require('./ListUsers');
+const Login = require('./Login');
+const GetUser = require('./GetUser');
+const ListCategories = require('./ListCategories');
+const GetCategory = require('./GetCategory');
+const CreatePost = require('./CreatePost');
+const ListPosts = require('./ListPosts');
 
-// module.exports = {
-//   createUser,
-//   listUsers,
-//   login,
-//   getUser,
-//   listCategories,
-//   getCategory,
-//   createPost,
-//   listPosts,
-// };
+module.exports = {
+  CreateUser,
+  ListUsers,
+  Login,
+  GetUser,
+  ListCategories,
+  GetCategory,
+  CreatePost,
+  ListPosts,
+};

@@ -5,13 +5,13 @@ const controller = require('../controllers');
 const authenticateJWT = require('../middleware/authentication');
 
 userRoutes.route('/')
-  .post(validInputs(Schema.input.userPOST), controller.createUser)
-  .get(authenticateJWT, controller.listUsers);
+  .post(validInputs(Schema.input.userPOST), controller.CreateUser)
+  .get(authenticateJWT, controller.ListUsers);
 
 userRoutes.route('/:id')
   .get(authenticateJWT,
     Schema.auth,
-    controller.getUser);
+    controller.GetUser);
   // .put()
   // .delete();
 

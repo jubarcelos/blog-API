@@ -1,10 +1,10 @@
-const createUser = require('../services/CreateUser');
+const CreateUser = require('../services/CreateUser');
 const token = require('../helpers/jwt');
 
-const createUserController = async (req, res, next) => {
+const CreateUserController = async (req, res, next) => {
   try {
     const { displayName, email, password, image } = req.body;
-    const user = await createUser({
+    const user = await CreateUser({
       displayName,
       email,
       password,
@@ -17,4 +17,4 @@ const createUserController = async (req, res, next) => {
   }
 };
 
-module.exports = createUserController;
+module.exports = CreateUserController;

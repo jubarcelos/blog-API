@@ -1,9 +1,9 @@
 const Services = require('../services');
 
-const createPostController = async (req, res, next) => {
+const CreatePostController = async (req, res, next) => {
   try {
     const { title, content, categoryIds } = req.body;
-    const post = await Services.createPost({
+    const post = await Services.CreatePost({
       title,
       userId: req.user.data.id,
       content,
@@ -16,4 +16,4 @@ const createPostController = async (req, res, next) => {
   }
 };
 
-module.exports = createPostController;
+module.exports = CreatePostController;

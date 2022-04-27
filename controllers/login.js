@@ -1,10 +1,10 @@
 const Service = require('../services');
 const tokenGenerator = require('../helpers/jwt');
 
-const checkLogin = async (req, res, next) => {
+const CheckLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const user = await Service.login({
+    const user = await Service.Login({
       email,
       password,
     });
@@ -15,4 +15,4 @@ const checkLogin = async (req, res, next) => {
   }
 };
 
-module.exports = checkLogin;
+module.exports = CheckLogin;

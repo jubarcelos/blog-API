@@ -7,11 +7,11 @@ const authenticateJWT = require('../middleware/authentication');
 categoriesRoutes.route('/')
 .get(authenticateJWT,
   Schema.auth,
-  controller.listCategories)
+  controller.ListCategories)
 .post(authenticateJWT, 
   validInputs(Schema.input.categoriesPOST),
   Schema.auth,
-  controller.createCategory);
+  controller.CreateCategory);
 
 // categoriesRoutes.route('/:id')
 //   .get()
