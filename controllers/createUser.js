@@ -1,4 +1,4 @@
-const createUser = require('../services/createUser');
+const createUser = require('../services/CreateUser');
 const token = require('../helpers/jwt');
 
 const createUserController = async (req, res, next) => {

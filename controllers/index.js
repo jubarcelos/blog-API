@@ -1,11 +1,11 @@
-const createUser = require('./createUser');
-const listUsers = require('./listUsers');
-const login = require('./login');
-const getUser = require('./getUser');
-const createCategory = require('./createCategory');
-const listCategories = require('./listCategories');
-const createPost = require('./createPost');
-const listPosts = require('./listPosts');
+const createUser = require('./CreateUser');
+const listUsers = require('./ListUsers');
+const login = require('./Login');
+const getUser = require('./GetUser');
+const createCategory = require('./CreateCategory');
+const listCategories = require('./ListCategories');
+const createPost = require('./CreatePost');
+const listPosts = require('./ListPosts');
 
 module.exports = {
   createUser,
