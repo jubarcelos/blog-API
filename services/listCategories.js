@@ -1,7 +1,7 @@
-const { Categories } = require('../models');
+const { Category } = require('../models');
 
 const listCategories = async () => {
-  const listedCategories = await Categories.findAll();
+  const listedCategories = await Category.findAll();
   return listedCategories;
 };
 
