@@ -20,6 +20,11 @@ const input = {
     content: joi.string().min(3).required(),
     categoryIds: joi.array().required(),
   }),
+  putPOST: joi.object().keys({
+    title: joi.string().min(3).required(),
+    content: joi.string().min(3).required(),
+    categoryIds: joi.any().forbidden().messages({ 'any.unknown': 'Categories cannot be edited' }),
+  }),
 };
 
 const auth = celebrate({
