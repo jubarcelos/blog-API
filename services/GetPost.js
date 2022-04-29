@@ -4,7 +4,7 @@ const GetPost = async (id) => {
   const gotPost = await BlogPost.findOne({ where: { id },
     include: [
       { model: User, as: 'user', attributes: { exclude: ['password'] } },
-      { model: Category, as: 'categories' },
+      { model: Category, as: 'categories', through: { attributes: [] } },
     ] });
   if (!gotPost) {
     return { status: 404, message: 'Post does not exist' };

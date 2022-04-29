@@ -1,4 +1,4 @@
-const { BlogPost } = require('../models');
+const { BlogPost, PostCategory } = require('../models');
 const GetCategory = require('./GetCategory');
 
 const CreatePost = async ({ title, userId, content, categoryIds }) => {
@@ -13,12 +13,11 @@ const CreatePost = async ({ title, userId, content, categoryIds }) => {
     return { status: 409, message: 'Post already registered' };
   }
 
-  const newPost = await BlogPost.create({
-    title,
-    userId,
-    content,
-    categoryIds,
-  });
+  const newPost = await BlogPost.create({ title, userId, content, categoryIds });
+  await Promise.all(categoryIds.map((id) => PostCategory.create({
+    postId: newPost.dataValues.id, categoryId: id,
+  })));
+
   return newPost;
 };
 
