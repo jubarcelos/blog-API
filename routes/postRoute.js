@@ -13,9 +13,14 @@ postRoutes.route('/')
     Schema.auth,
     controller.CreatePost);
 
-// postRoutes.route('/:id')
-//   .get()
-//   .put()
-//   .delete();
+postRoutes.route('/:id')
+  .get(authenticateJWT,
+    Schema.auth,
+    controller.GetPost)
+  .put(authenticateJWT, 
+    validInputs(Schema.input.putPOST),
+    Schema.auth,
+    controller.UpdatePost)
+  .delete(authenticateJWT, controller.DestroyPost);
 
 module.exports = postRoutes;

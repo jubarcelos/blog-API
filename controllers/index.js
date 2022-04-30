@@ -6,6 +6,9 @@ const CreateCategory = require('./CreateCategory');
 const ListCategories = require('./ListCategories');
 const CreatePost = require('./CreatePost');
 const ListPosts = require('./ListPosts');
+const GetPost = require('./GetPost');
+const UpdatePost = require('./UpdatePost');
+const DestroyPost = require('./DestroyPost');
 
 module.exports = {
   CreateUser,
@@ -16,4 +19,7 @@ module.exports = {
   ListCategories,
   ListPosts,
   CreatePost,
+  GetPost,
+  UpdatePost,
+  DestroyPost,
 };
